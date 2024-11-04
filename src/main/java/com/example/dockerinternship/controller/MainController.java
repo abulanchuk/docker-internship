@@ -17,6 +17,6 @@ public class MainController {
 
     @GetMapping("/hello")
     public String status() {
-        return "Hello World!";
+        return "Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World!";
     }
 }
