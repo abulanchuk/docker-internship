@@ -1,10 +1,13 @@
 name: Lint GitHub Actions
 on:
   pull_request:
+  workflow_dispatch:
 jobs:
   MavenBuildAndLint:
     runs-on: ubuntu-latest
     steps:
+      - run: ls -a .
+        name: List current directory
       - run: mvn clean compile
         name: Build project
       - run: mvn checkstyle:check spotbugs:check org.owasp:dependency-check-maven:check
