@@ -6,6 +6,7 @@ jobs:
   MavenBuildAndLint:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - run: ls -a .
         name: List current directory
       - run: mvn clean compile
