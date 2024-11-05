@@ -1,0 +1,16 @@
+name: Lint GitHub Actions
+on:
+  pull_request:
+jobs:
+  MavenBuildAndLint:
+    runs-on: ubuntu-latest
+    steps:
+      - run: mvn clean compile
+        name: Build project
+      - run: mvn checkstyle:check spotbugs:check org.owasp:dependency-check-maven:check
+        name: Run Checkstyle
+      - uses: actions/upload-artifact@v4
+        name: "Publish build artifacts"
+        if: always()
+        with:
+          path: '**/target/*.jar'
